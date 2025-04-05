@@ -42,7 +42,7 @@ public:
                 left++;
             }
         }
-        // return the result
+        // return the  result
         return res;
     }
 };
