@@ -1,10 +1,12 @@
-// Solution.java
+package solutions; // Ensure package is correctly set
+
 import java.util.*;
 
 public class Solution {
     public List<Integer> spiralOrder(int[][] matrix) {
         List<Integer> res = new ArrayList<>();
-        if (matrix.length == 0) return res;
+        if (matrix.length == 0)
+            return res;
 
         int m = matrix.length, n = matrix[0].length;
         int top = 0, bottom = m - 1, left = 0, right = n - 1;

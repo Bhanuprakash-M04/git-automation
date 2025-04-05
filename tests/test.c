@@ -1,9 +1,36 @@
-// test_spiral.c
 #include <stdio.h>
 #include <stdlib.h>
-#include "spiral_solution.h"
+#include <stdbool.h>
+#include "../solutions/solution.c"
 
-void runTestCases() {
+// Function to compare arrays
+bool compareArrays(int *arr1, int size1, int *arr2, int size2)
+{
+    if (size1 != size2)
+        return false;
+    for (int i = 0; i < size1; i++)
+    {
+        if (arr1[i] != arr2[i])
+            return false;
+    }
+    return true;
+}
+
+// Function to print arrays
+void printArray(int *arr, int size)
+{
+    printf("[");
+    for (int i = 0; i < size; i++)
+    {
+        printf("%d", arr[i]);
+        if (i < size - 1)
+            printf(", ");
+    }
+    printf("]\n");
+}
+
+void runTestCases()
+{
     int passed = 0, failed = 0;
 
     // Test Cases
@@ -25,41 +52,49 @@ void runTestCases() {
     int test6[3][1] = {{1}, {2}, {3}}; // Single column
     int expected6[] = {1, 2, 3};
 
-    int* matrices[] = {(int*)test1, (int*)test2, (int*)test3, (int*)test4, (int*)test5, (int*)test6};
+    int *matrices[] = {(int *)test1, (int *)test2, (int *)test3, (int *)test4, (int *)test5, (int *)test6};
     int rows[] = {3, 3, 2, 1, 0, 3};
     int cols[] = {3, 4, 2, 1, 0, 1};
-    int* expectedResults[] = {expected1, expected2, expected3, expected4, expected5, expected6};
+    int *expectedResults[] = {expected1, expected2, expected3, expected4, expected5, expected6};
     int expectedSizes[] = {9, 12, 4, 1, 0, 3};
 
-    for (int t = 0; t < 6; t++) {
+    for (int t = 0; t < 6; t++)
+    {
         int m = rows[t], n = cols[t];
-        if (m == 0 || n == 0) {
+
+        if (m == 0 || n == 0)
+        {
             printf("Test Case %d: Expected [] - Got [] ✅ Passed\n", t + 1);
             passed++;
             continue;
         }
 
-        int** matrix = (int**)malloc(m * sizeof(int*));
+        int **matrix = (int **)malloc(m * sizeof(int *));
         for (int i = 0; i < m; i++)
             matrix[i] = matrices[t] + (i * n);
 
-        int result[m * n], size;
-        spiralOrder(matrix, m, n, result, &size);
+        int matrixColSize = n; // Needs to be passed as an array
+        int returnSize;
+        int *result = spiralOrder(matrix, m, &matrixColSize, &returnSize);
 
         printf("Test Case %d:\n", t + 1);
         printf("Expected: ");
         printArray(expectedResults[t], expectedSizes[t]);
         printf("Got:      ");
-        printArray(result, size);
+        printArray(result, returnSize);
 
-        if (compareArrays(result, size, expectedResults[t], expectedSizes[t])) {
+        if (compareArrays(result, returnSize, expectedResults[t], expectedSizes[t]))
+        {
             printf("✅ Passed\n\n");
             passed++;
-        } else {
+        }
+        else
+        {
             printf("❌ Failed\n\n");
             failed++;
         }
 
+        free(result); // Free memory allocated by spiralOrder
         free(matrix);
     }
 
@@ -68,7 +103,8 @@ void runTestCases() {
     printf("Total Test Cases: %d\n", passed + failed);
 }
 
-int main() {
+int main()
+{
     runTestCases();
     return 0;
 }

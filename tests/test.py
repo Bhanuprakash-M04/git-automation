@@ -1,6 +1,10 @@
-# test_spiral.py
+import sys
+import os
 
-from solution import spiralOrder
+# Add the solution folder to the Python path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+from solutions.solution import spiralOrder
 
 def print_list(arr):
     print("[", end="")

@@ -1,29 +1,29 @@
-// TestSpiral.java
+import solutions.Solution; // Correct import statement
 import java.util.*;
+//this is changed
+public class Test {
 
-public class TestSpiral {
     public static void printList(List<Integer> list) {
         System.out.println(list);
     }
 
     public static void runTestCases() {
         int[][][] testCases = {
-            {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}},
-            {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}},
-            {{1, 2}, {3, 4}},
-            {{1}},
-            {},
-            {{1}, {2}, {3}}
+                { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } },
+                { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 10, 11, 12 } },
+                { { 1, 2 }, { 3, 4 } },
+                { { 1 } },
+                {},
+                { { 1 }, { 2 }, { 3 } }
         };
 
         List<List<Integer>> expectedResults = Arrays.asList(
-            Arrays.asList(1, 2, 3, 6, 9, 8, 7, 4, 5),
-            Arrays.asList(1, 2, 3, 4, 8, 12, 11, 10, 9, 5, 6, 7),
-            Arrays.asList(1, 2, 4, 3),
-            Arrays.asList(1),
-            Arrays.asList(),
-            Arrays.asList(1, 2, 3)
-        );
+                Arrays.asList(1, 2, 3, 6, 9, 8, 7, 4, 5),
+                Arrays.asList(1, 2, 3, 4, 8, 12, 11, 10, 9, 5, 6, 7),
+                Arrays.asList(1, 2, 4, 3),
+                Arrays.asList(1),
+                Arrays.asList(),
+                Arrays.asList(1, 2, 3));
 
         Solution sol = new Solution();
         int passed = 0, failed = 0;

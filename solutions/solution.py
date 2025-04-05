@@ -1,5 +1,5 @@
 # solution.py
-
+__package__="solutions"
 def spiralOrder(matrix):
     if not matrix or not matrix[0]:
         return []
