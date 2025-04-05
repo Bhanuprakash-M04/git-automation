@@ -10,7 +10,7 @@ public:
         int n = matrix.size() - 1;
         int top = 0, right = m, left = 0, bottom = n;
         vector<int> res;
-        // starting the loop
+        // starting the loop knbi
         while (top <= bottom && left <= right)
         {
             for (int i = left; i <= right; i++)
