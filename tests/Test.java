@@ -1,3 +1,5 @@
+package tests;
+
 import solutions.Solution; 
 import java.util.*;
 
