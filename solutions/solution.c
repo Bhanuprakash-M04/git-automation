@@ -9,7 +9,7 @@ int *spiralOrder(int **matrix, int matrixSize, int *matrixColSize, int *returnSi
     int right = matrixColSize[0] - 1;
     int top = 0;
     int bottom = matrixSize - 1;
-
+    // starting loop
     while (top <= bottom && left <= right)
     { // stops when boundaries meet
         for (int i = top; i <= right; i++)
