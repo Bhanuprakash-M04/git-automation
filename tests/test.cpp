@@ -7,7 +7,7 @@ void printVector(const vector<int> &vec)
     cout << "[";
     for (size_t i = 0; i < vec.size(); i++)
         cout << vec[i] << (i < vec.size() - 1 ? ", " : "");
-    cout << "]\n";
+    cout << "]" << endl;
 }
 
 void runTestCases()
@@ -35,26 +35,27 @@ void runTestCases()
     {
         vector<int> result = sol.spiralOrder(testCases[i]);
 
-        cout << "Test Case " << i + 1 << ":\nExpected: ";
+        cout << "Test Case " << i + 1 << ":" << endl;
+        cout << "Expected: ";
         printVector(expectedResults[i]);
         cout << "Got:      ";
         printVector(result);
 
         if (result == expectedResults[i])
         {
-            cout << "✅ Passed\n\n";
+            cout << "✅ Passed" << endl;
             passed++;
         }
         else
         {
-            cout << "❌ Failed\n\n";
+            cout << "❌ Failed" << endl;
             failed++;
         }
     }
 
-    cout << "Test Cases Passed: " << passed << "\n";
-    cout << "Test Cases Failed: " << failed << "\n";
-    cout << "Total Test Cases: " << passed + failed << "\n";
+    cout << "Test Cases Passed: " << passed << endl;
+    cout << "Test Cases Failed: " << failed << endl;
+    cout << "Total Test Cases: " << passed + failed << endl;
 }
 
 int main()
