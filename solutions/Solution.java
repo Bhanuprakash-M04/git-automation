@@ -1,5 +1,4 @@
 package solutions; // Ensure package is correctly set
-
 import java.util.*;
 
 public class Solution {

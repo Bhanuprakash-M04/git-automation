@@ -27,7 +27,7 @@ public class Test {
 
         Solution sol = new Solution();
         int passed = 0, failed = 0;
-
+        //stratting loop
         for (int i = 0; i < testCases.length; i++) {
             List<Integer> result = sol.spiralOrder(testCases[i]);
 
