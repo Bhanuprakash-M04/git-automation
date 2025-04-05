@@ -33,7 +33,7 @@ public class Solution {
                 left++;
             }
         }
-        //printing re s
+        //printing res
         return res;
     }
 }
