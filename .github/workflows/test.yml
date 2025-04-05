@@ -73,7 +73,7 @@ jobs:
       - name: Compile and Run C++ Tests
         if: env.LANGUAGE == 'C++'
         run: |
-          g++ tests/test.cpp solutions/solution.cpp -o test_runner_cpp
+          g++ tests/test.cpp -o test_runner_cpp
           echo "Running C++ Test Cases..."
           ./test_runner_cpp | tee test_results.log
 
