@@ -3,27 +3,38 @@
 #include <stdbool.h>
 int *spiralOrder(int **matrix, int matrixSize, int *matrixColSize, int *returnSize)
 {
-    int rows = matrix.size();
-        int cols = matrix[0].size();
-        int x = 0;
-        int y = 0;
-        int dx = 1;
-        int dy = 0;
-        vector<int> res;
+    int* arr = malloc(sizeof(int)*(matrixSize*matrixColSize[0]));
+    int ind=0;
+    int left=0;
+    int right = matrixColSize[0]-1;
+    int top=0;
+    int bottom = matrixSize-1;
 
-        for (int i = 0; i < rows * cols; i++) {
-            res.push_back(matrix[y][x]);
-            matrix[y][x] = -101;
+    while(top<=bottom && left<=right){   //stops when boundaries meet
+        for(int i=top;i<=right;i++){      //left to right traversal
+            arr[ind++] = matrix[top][i];
+        }      
+        top++;
 
-            if (!(0 <= x + dx && x + dx < cols && 0 <= y + dy && y + dy < rows) || matrix[y+dy][x+dx] == -101) {
-                int temp = dx;
-                dx = -dy;
-                dy = temp;
+        for(int i=top;i<=bottom;i++){      //top to bottom traversal
+            arr[ind++]=matrix[i][right];
+        }
+        right--;
+
+        if(top<=bottom){
+            for(int i=right;i>=left;i--){       //right to left traversla (if needed)
+                arr[ind++]=matrix[bottom][i];
             }
-
-            x += dx;
-            y += dy;
+            bottom--;
         }
 
-        return res;
+        if(left<=right){
+            for(int i=bottom;i>=top;i--){      //bottom to top traversal (if needed)
+                arr[ind++]=matrix[i][left];
+            }
+            left++;
+        }
+    }
+    *returnSize = matrixSize * matrixColSize[0];
+    return arr;
 }
