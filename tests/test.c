@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include "../solutions/solution.c"
+#include "../solutions/solution.c"  // Make sure this file contains your spiralOrder() function
 
 // Function to compare arrays
 bool compareArrays(int *arr1, int size1, int *arr2, int size2)
@@ -46,34 +46,26 @@ void runTestCases()
     int test4[1][1] = {{1}};
     int expected4[] = {1};
 
-    int test5[0][0] = {}; // Empty matrix
-    int expected5[] = {};
-
     int test6[3][1] = {{1}, {2}, {3}}; // Single column
     int expected6[] = {1, 2, 3};
 
-    int *matrices[] = {(int *)test1, (int *)test2, (int *)test3, (int *)test4, (int *)test5, (int *)test6};
-    int rows[] = {3, 3, 2, 1, 0, 3};
-    int cols[] = {3, 4, 2, 1, 0, 1};
-    int *expectedResults[] = {expected1, expected2, expected3, expected4, expected5, expected6};
-    int expectedSizes[] = {9, 12, 4, 1, 0, 3};
+    // Array of test matrices and their metadata
+    int *matrices[] = {(int *)test1, (int *)test2, (int *)test3, (int *)test4, (int *)test6};
+    int rows[] = {3, 3, 2, 1, 3};
+    int cols[] = {3, 4, 2, 1, 1};
+    int *expectedResults[] = {expected1, expected2, expected3, expected4, expected6};
+    int expectedSizes[] = {9, 12, 4, 1, 3};
 
-    for (int t = 0; t < 6; t++)
+    // Run all test cases
+    for (int t = 0; t < 5; t++)
     {
         int m = rows[t], n = cols[t];
-
-        if (m == 0 || n == 0)
-        {
-            printf("Test Case %d: Expected [] - Got [] ✅ Passed\n", t + 1);
-            passed++;
-            continue;
-        }
 
         int **matrix = (int **)malloc(m * sizeof(int *));
         for (int i = 0; i < m; i++)
             matrix[i] = matrices[t] + (i * n);
 
-        int matrixColSize = n; // Needs to be passed as an array
+        int matrixColSize = n;
         int returnSize;
         int *result = spiralOrder(matrix, m, &matrixColSize, &returnSize);
 
@@ -94,7 +86,7 @@ void runTestCases()
             failed++;
         }
 
-        free(result); // Free memory allocated by spiralOrder
+        free(result);
         free(matrix);
     }
 
