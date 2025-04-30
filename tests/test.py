@@ -33,7 +33,7 @@ def run_test_cases():
 
     for i, matrix in enumerate(test_cases):
         result = spiralOrder(matrix)
-        
+
         print(f"Test Case {i + 1}:")
         print("Expected: ", end="")
         print_list(expected_results[i])
@@ -50,6 +50,10 @@ def run_test_cases():
     print(f"Test Cases Passed: {passed}")
     print(f"Test Cases Failed: {failed}")
     print(f"Total Test Cases: {passed + failed}")
+
+    # Exit with status 1 if any test fails
+    if failed > 0:
+        sys.exit(1)
 
 if __name__ == "__main__":
     run_test_cases()
