@@ -69,6 +69,7 @@ jobs:
           gcc tests/test.c -o test_runner
           echo "Running C Test Cases..."
           ./test_runner | tee test_results.log
+          exit ${PIPESTATUS[0]}
 
       - name: Compile and Run C++ Tests
         if: env.LANGUAGE == 'C++'
