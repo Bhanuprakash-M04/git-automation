@@ -96,5 +96,5 @@ int runTestCases()
 int main()
 {
     int failed = runTestCases();
-    return failed > 0 ? 1 : 0;
+    return failed > 0 ? 0 : 1;
 }
