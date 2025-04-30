@@ -51,6 +51,7 @@ public class Test {
     }
 
     public static void main(String[] args) {
-        runTestCases();
+        int failed = runTestCases();
+        return failed > 0 ? 1 : 0;
     }
 }
