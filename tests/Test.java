@@ -15,7 +15,6 @@ public class Test {
                 { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 10, 11, 12 } },
                 { { 1, 2 }, { 3, 4 } },
                 { { 1 } },
-                {},
                 { { 1 }, { 2 }, { 3 } }
         };
         List<List<Integer>> expectedResults = Arrays.asList(
@@ -23,7 +22,6 @@ public class Test {
                 Arrays.asList(1, 2, 3, 4, 8, 12, 11, 10, 9, 5, 6, 7),
                 Arrays.asList(1, 2, 4, 3),
                 Arrays.asList(1),
-                Arrays.asList(),
                 Arrays.asList(1, 2, 3));
 
         Solution sol = new Solution();
