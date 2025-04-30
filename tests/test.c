@@ -95,5 +95,6 @@ int runTestCases()
 
 int main()
 {
-    return runTestCases() > 0 ? 1 : 0; // Exit with 1 if any failure
+    int failed = runTestCases();
+    return failed > 0 ? 1 : 0;
 }
