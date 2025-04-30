@@ -1,6 +1,6 @@
 package tests;
 
-import solutions.Solution; 
+import solutions.Solution;
 import java.util.*;
 
 public class Test {
@@ -9,7 +9,7 @@ public class Test {
         System.out.println(list);
     }
 
-    public static void runTestCases() {
+    public static int runTestCases() {
         int[][][] testCases = {
                 { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } },
                 { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 10, 11, 12 } },
@@ -26,7 +26,7 @@ public class Test {
 
         Solution sol = new Solution();
         int passed = 0, failed = 0;
-        // stratting loop
+
         for (int i = 0; i < testCases.length; i++) {
             List<Integer> result = sol.spiralOrder(testCases[i]);
 
@@ -48,10 +48,14 @@ public class Test {
         System.out.println("Test Cases Passed: " + passed);
         System.out.println("Test Cases Failed: " + failed);
         System.out.println("Total Test Cases: " + (passed + failed));
+
+        return failed;
     }
 
     public static void main(String[] args) {
         int failed = runTestCases();
-        return failed > 0 ? 1 : 0;
+        if (failed > 0) {
+            System.exit(1);  // Non-zero exit for failed tests
+        }
     }
 }
