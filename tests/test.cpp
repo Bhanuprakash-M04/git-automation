@@ -58,6 +58,6 @@ void runTestCases()
 
 int main()
 {
-    runTestCases();
-    return 0;
+    int failed = runTestCases();
+    return failed > 0 ? 1 : 0;
 }
