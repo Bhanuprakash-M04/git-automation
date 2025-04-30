@@ -7,5 +7,6 @@ public class Solution {
     public List<Integer> spiralOrder(int[][] matrix) {
 
         //Write your code
+          return new ArrayList<>();
     }
 }
