@@ -9,7 +9,7 @@ int *spiralOrder(int **matrix, int matrixSize, int *matrixColSize, int *returnSi
 
     
     // Write your code here
-    // Remove the below lines while running the code 
+    // Remove the below line while running the code 
     *returnSize = 0;
     return NULL;
 }
