@@ -10,7 +10,7 @@ void printVector(const vector<int> &vec)
     cout << "]" << endl;
 }
 
-void runTestCases()
+int runTestCases()
 {
     vector<vector<vector<int>>> testCases = {
         {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}},
@@ -54,6 +54,8 @@ void runTestCases()
     cout << "Test Cases Passed: " << passed << endl;
     cout << "Test Cases Failed: " << failed << endl;
     cout << "Total Test Cases: " << passed + failed << endl;
+
+    return failed;
 }
 
 int main()
