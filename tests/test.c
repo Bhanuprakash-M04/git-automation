@@ -1,9 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include "../solutions/solution.c"  // Make sure this file contains your spiralOrder() function
+#include "../solutions/solution.c"
 
-// Function to compare arrays
 bool compareArrays(int *arr1, int size1, int *arr2, int size2)
 {
     if (size1 != size2)
@@ -16,7 +15,6 @@ bool compareArrays(int *arr1, int size1, int *arr2, int size2)
     return true;
 }
 
-// Function to print arrays
 void printArray(int *arr, int size)
 {
     printf("[");
@@ -29,7 +27,7 @@ void printArray(int *arr, int size)
     printf("]\n");
 }
 
-void runTestCases()
+int runTestCases()
 {
     int passed = 0, failed = 0;
 
@@ -46,17 +44,15 @@ void runTestCases()
     int test4[1][1] = {{1}};
     int expected4[] = {1};
 
-    int test6[3][1] = {{1}, {2}, {3}}; // Single column
+    int test6[3][1] = {{1}, {2}, {3}};
     int expected6[] = {1, 2, 3};
 
-    // Array of test matrices and their metadata
     int *matrices[] = {(int *)test1, (int *)test2, (int *)test3, (int *)test4, (int *)test6};
     int rows[] = {3, 3, 2, 1, 3};
     int cols[] = {3, 4, 2, 1, 1};
     int *expectedResults[] = {expected1, expected2, expected3, expected4, expected6};
     int expectedSizes[] = {9, 12, 4, 1, 3};
 
-    // Run all test cases
     for (int t = 0; t < 5; t++)
     {
         int m = rows[t], n = cols[t];
@@ -93,10 +89,11 @@ void runTestCases()
     printf("Test Cases Passed: %d\n", passed);
     printf("Test Cases Failed: %d\n", failed);
     printf("Total Test Cases: %d\n", passed + failed);
+
+    return failed; // return number of failed cases
 }
 
 int main()
 {
-    runTestCases();
-    return 0;
+    return runTestCases() > 0 ? 1 : 0; // Exit with 1 if any failure
 }
