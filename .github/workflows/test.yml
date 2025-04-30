@@ -84,6 +84,7 @@ jobs:
         run: |
           echo "Running Python Test Cases..."
           python3 tests/test.py | tee test_results.log
+          exit ${PIPESTATUS[0]}
 
       - name: Compile and Run Java Tests
         if: env.LANGUAGE == 'Java'
@@ -91,6 +92,7 @@ jobs:
           javac solutions/Solution.java tests/Test.java
           echo "Running Java Test Cases..."
           java -cp . tests.Test | tee test_results.log
+          exit ${PIPESTATUS[0]}
 
       - name: Upload Test Results
         if: always()
